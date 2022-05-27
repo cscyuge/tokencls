@@ -13,6 +13,7 @@ from utils.dataset import build_dataset, build_iterator
 from transformers import BertForTokenClassification
 from sklearn.metrics import f1_score, accuracy_score
 import pickle
+import shutil
 
 PAD, CLS = '[PAD]', '[CLS]'
 SEP = '[SEP]'
@@ -121,6 +122,7 @@ def train(model, optimizer, scheduler, train_dataloader, val_dataloader, test_da
             save_file['para'] = model.state_dict()
             save_file['best_acc'] = acc
             torch.save(save_file, './cache/best_save.data')
+            shutil.copy('result/label_test.txt', 'result/label_test_best.txt')
 
         print(save_file['epoch'] - 1)
 

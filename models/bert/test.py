@@ -1,7 +1,7 @@
 from sklearn.metrics import f1_score, accuracy_score, precision_score, recall_score
 import pickle
 
-with open('result/label_test.txt', 'r', encoding='utf-8') as f:
+with open('result/label_test_best.txt', 'r', encoding='utf-8') as f:
     data = f.read().split('\n\n')
     print(len(data))
     predictions = []
